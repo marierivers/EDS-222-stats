@@ -139,6 +139,7 @@ lm(total_l ~ tail_l, data = possum) %>%
   gt()
 
 # total length is a function of body length + tail length
+
 ```
 ```{r}
 summary(lm(total_l ~ tail_l, data = possum))
@@ -182,7 +183,7 @@ ggplot(data = possum, aes(y = total_l, x = tail_l)) +
   geom_smooth(method = "lm", formula= y~x, se=FALSE, size=3) + 
   labs(x = "Length of Possum Tail (cm)",
        y = "Total Length of Possum (cm)")
-
+# put your regression into ggplot, data, y axis (dependent variable), x-axis (independent variable), relate y to x, se=false <- don't give me standard errors
 ```
 
 
@@ -207,6 +208,8 @@ Recall that one of our assumptions needed in order to prove that OLS is **unbias
 Using the regression of total length on tail length:
 
 1. Add to the `possum` dataframe a column of predicted total lengths $\hat y_i$ and a column of residuals $e_i = y_i-\hat y_i$.^[**Hint:** In `dplyr` you can use `add_predictions(mod)` where `mod` is a regression model to generate a new variable containing your model's predicted values.]
+
+# error = observed - estimated
 
 2. Make a histogram of your residuals. Do they look approximately normally distributed?
 
